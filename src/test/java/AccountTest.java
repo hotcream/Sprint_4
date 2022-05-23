@@ -25,7 +25,6 @@ public class AccountTest {
     public static Object[][] getName() {
         return new Object[][]{
                 {"", false},
-                {null, false},
                 {" ТимотиШаламе", false}, // пробел в начале
                 {"ТимотиШаламе ", false}, // пробел в конце
                 {"Тимоти Шаламе", true},

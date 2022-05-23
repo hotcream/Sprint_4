@@ -1,3 +1,6 @@
+import java.util.regex.Matcher;
+import java.util.regex.Pattern;
+
 public class Account {
 
     private final String name;
@@ -8,10 +11,10 @@ public class Account {
 
     public boolean checkNameToEmboss() {
 
-        return name != null
-                && name.length() >= 3 && name.length() <= 19
-                && name.contains(" ") && name.indexOf(" ") == name.lastIndexOf(" ")
-                && !name.startsWith(" ") && !name.endsWith(" ");
+        String regex = "^(?=.{3,19}$)(\\S)+\\s(\\S)+$";
+        Pattern pattern = Pattern.compile(regex);
+        Matcher matcher = pattern.matcher(name);
+        return matcher.matches();
     }
 
 }
